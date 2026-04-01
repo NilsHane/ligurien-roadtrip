@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligurien Roadtrip – 30. Mai bis 3. Juni 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #F5F0E8;
+    --terracotta: #C4603A;
+    --terracotta-light: #E8855F;
+    --sea: #2B6B8A;
+    --sea-light: #4A9BBF;
+    --sea-dark: #1A4A62;
+    --olive: #6B7C4E;
+    --olive-light: #8FA366;
+    --ink: #2C2418;
+    --ink-light: #5C5044;
+    --cream: #FDFBF7;
+    --gold: #D4A853;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(43,107,138,0.08) 0%, rgba(196,96,58,0.06) 100%),
+      var(--cream);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 30%, rgba(43,107,138,0.07), transparent),
+      radial-gradient(ellipse 500px 500px at 80% 70%, rgba(196,96,58,0.06), transparent),
+      radial-gradient(ellipse 300px 300px at 50% 50%, rgba(212,168,83,0.05), transparent);
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(30px, -20px) rotate(2deg); }
+  }
+
+  .hero-content { position: relative; z-index: 1; padding: 2rem; }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--ink-light);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .hero-dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 0.8rem 2rem;
+    border-radius: 100px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink-light);
+  }
+  .hero-dates .sep { width: 30px; height: 1px; background: var(--gold); }
+
+  .route-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    font-size: 13px;
+    color: var(--ink-light);
+    letter-spacing: 1px;
+  }
+  .route-line .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); }
+  .route-line .line { width: 40px; height: 1px; background: var(--terracotta-light); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    opacity: 0.5;
+    animation: bob 2s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  section { padding: 4rem 1.5rem; max-width: 800px; margin: 0 auto; }
+
+  .map-section {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .map-section iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .day-card {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+    border-left: 2px solid var(--sand);
+  }
+  .day-card::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--terracotta);
+  }
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--terracotta);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  .day-date {
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+  .day-text {
+    font-size: 16px;
+    color: var(--ink-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .stop {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+  .stop:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+  .stop-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    color: white;
+  }
+  .stop-icon.beach { background: var(--sea); }
+  .stop-icon.town { background: var(--terracotta); }
+  .stop-icon.food { background: var(--olive); }
+  .stop-icon.drive { background: var(--gold); }
+  .stop-icon.lake { background: var(--sea-dark); }
+  .stop h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .stop p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.5;
+  }
+  .stop .time {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--terracotta);
+    letter-spacing: 0.5px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .info-box {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .info-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .info-box p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
+    margin: 3rem auto;
+    border-radius: 2px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    font-size: 13px;
+    color: var(--ink-light);
+    opacity: 0.6;
+  }
+
+  @media (max-width: 600px) {
+    .hero-dates { flex-direction: column; gap: 0.3rem; padding: 0.6rem 1.5rem; }
+    .hero-dates .sep { width: 1px; height: 16px; }
+    .route-line { flex-wrap: wrap; }
+    .info-grid { grid-template-columns: 1fr; }
+    .map-section iframe { height: 350px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Roadtrip 2026</div>
+    <h1>Ciao, <em>Ligurien</em></h1>
+    <p class="hero-sub">Meer, Focaccia & mittelalterliche Dörfer</p>
+    <div class="hero-dates">
+      <span>30. Mai</span>
+      <span class="sep"></span>
+      <span>3. Juni 2026</span>
+    </div>
+    <div class="route-line">
+      <span>Stiefenhofen</span>
+      <span class="dot"></span><span class="line"></span>
+      <span>Finale Ligure</span>
+      <span class="dot"></span><span class="line"></span>
+      <span>Genua</span>
+      <span class="dot"></span><span class="line"></span>
+      <span>Lago di Mergozzo</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<div class="map-section">
+  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=&ehbc=2E312F&ll=44.8,8.6&z=7&dirflg=d&saddr=Stiefenhofen,+Germany&daddr=Finale+Ligure,+Italy+to:Varigotti,+Italy+to:Noli,+Italy+to:Genova,+Italy+to:Mergozzo,+Italy"
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d1400000!2d8.5!3d45.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x479c0f9c5e7d9b3f%3A0x8e8b1b4e0a7e7d0!2sStiefenhofen%2C+Germany!3m2!1d47.5167!2d9.9833!4m5!1s0x12d2f3615a6a0349%3A0x966eb880e0a460b3!2sFinale+Ligure%2C+Province+of+Savona%2C+Italy!3m2!1d44.1702!2d8.3472!4m5!1s0x12d2fc0d7d8f24ff%3A0xe38da5e426a98e2b!2sVarigotti%2C+Province+of+Savona%2C+Italy!3m2!1d44.1815!2d8.402!4m5!1s0x12d2fc898b096165%3A0x570fd180e45a5c33!2sNoli%2C+Province+of+Savona%2C+Italy!3m2!1d44.2057!2d8.4162!4m3!3m2!1d44.4086!2d8.9225!5e0!3m2!1sde!2sde!4v1"
+    allowfullscreen></iframe>
+</div>
+
+<section>
+  <div class="section-label">Die Route</div>
+
+  <div class="day-card">
+    <div class="day-num">Tag 1</div>
+    <div class="day-title">Anreise ans Meer</div>
+    <div class="day-date">Samstag, 30. Mai 2026</div>
+    <div class="day-text">
+      Früh losfahren über den San Bernardino (A13, mautfrei durch die Schweiz) und die A26 Richtung Genua. Nachmittags Ankunft an der ligurischen Küste – Sandstrand, Meeresluft und abends die schönste Focaccia eures Lebens.
+    </div>
+    <div class="stop">
+      <div class="stop-icon drive">&#9737;</div>
+      <div>
+        <span class="time">08:00</span>
+        <h4>Stiefenhofen → Finale Ligure</h4>
+        <p>~5h Fahrt über San Bernardino. Tipp: Vignette Schweiz nicht vergessen (digital kaufbar). Tanken in der Schweiz ist günstiger.</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon beach">&#9778;</div>
+      <div>
+        <span class="time">14:00</span>
+        <h4>Strand Finale Ligure</h4>
+        <p>Breiter Sandstrand, entspannter Einstieg. Ende Mai noch nicht überlaufen, Wasser ca. 20 °C.</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon town">&#9960;</div>
+      <div>
+        <span class="time">18:00</span>
+        <h4>Finalborgo</h4>
+        <p>Mittelalterliches Dorf 2 km landeinwärts – eines der schönsten Italiens. Focaccia, Aperitivo in den Gassen, Blick auf die Burg.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">Tag 2</div>
+    <div class="day-title">Küste & versteckte Buchten</div>
+    <div class="day-date">Sonntag, 31. Mai 2026</div>
+    <div class="day-text">
+      Heute geht's an die schönsten Strände der Riviera di Ponente – alles innerhalb weniger Autominuten erreichbar. Vormittags baden, nachmittags durch ein echtes Stück italienische Geschichte schlendern.
+    </div>
+    <div class="stop">
+      <div class="stop-icon beach">&#9778;</div>
+      <div>
+        <span class="time">09:30</span>
+        <h4>Spiaggia di Varigotti</h4>
+        <p>Buntes Fischerdorf mit türkisfarbenem Wasser. Einer der meistfotografierten Strände Liguriens. Bewertung: 4.7 ★</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon beach">&#9778;</div>
+      <div>
+        <span class="time">11:30</span>
+        <h4>Baia dei Saraceni</h4>
+        <p>Versteckte Bucht zwischen Felsen – Geheimtipp zum Schnorcheln. Zu Fuß von Varigotti erreichbar. Bewertung: 4.6 ★</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon town">&#9960;</div>
+      <div>
+        <span class="time">15:00</span>
+        <h4>Noli – Altstadt</h4>
+        <p>Ehemalige Seerepublik! Mittelalterliche Türme, enge Gassen, Piazza direkt am Meer. Frischen Fisch essen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">Tag 3</div>
+    <div class="day-title">Tagesausflug Genua</div>
+    <div class="day-date">Montag, 1. Juni 2026</div>
+    <div class="day-text">
+      Ein Tag in der Hafenstadt – Europas größte mittelalterliche Altstadt, Streetfood vom Feinsten und der beeindruckende alte Hafen. Abends zurück nach Finale Ligure.
+    </div>
+    <div class="stop">
+      <div class="stop-icon town">&#9960;</div>
+      <div>
+        <span class="time">10:00</span>
+        <h4>Genova Centro Storico</h4>
+        <p>Die „Caruggi" – enge Gassen voller Leben. Unbedingt probieren: Focaccia di Recco, Pesto alla Genovese, Farinata.</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon town">&#9960;</div>
+      <div>
+        <span class="time">13:00</span>
+        <h4>Porto Antico</h4>
+        <p>Alter Hafen mit Renzo-Piano-Architektur, Aquarium, Hafenpromenade. Gelato am Wasser! Bewertung: 4.5 ★</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon food">&#9733;</div>
+      <div>
+        <span class="time">19:00</span>
+        <h4>Focacceria Da Ü Cicci</h4>
+        <p>Zurück in Finale Ligure – die beste Focaccia der Stadt zum Abschied. Achtung: Di + Mi geschlossen, passt am Montag! Bewertung: 4.6 ★</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-num">Tag 4</div>
+    <div class="day-title">Küste → Lago di Mergozzo</div>
+    <div class="day-date">Dienstag, 2. Juni 2026</div>
+    <div class="day-text">
+      Abschied vom Meer! Morgens ein letztes Bad, dann die entspannte Fahrt durchs piemontesische Hinterland hoch zum See. Ab dem 4. Juni trifft die Pfadi-Crew auf dem Campingplatz ein.
+    </div>
+    <div class="stop">
+      <div class="stop-icon beach">&#9778;</div>
+      <div>
+        <span class="time">09:00</span>
+        <h4>Letztes Bad in Finale Ligure</h4>
+        <p>Nochmal Meer tanken, bevor es in die Berge geht.</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon drive">&#9737;</div>
+      <div>
+        <span class="time">10:30</span>
+        <h4>Fahrt zum See</h4>
+        <p>~2,5 Stunden über die A26 nach Norden. Entspannte Strecke durchs Piemont.</p>
+      </div>
+    </div>
+    <div class="stop">
+      <div class="stop-icon lake">&#9672;</div>
+      <div>
+        <span class="time">13:00</span>
+        <h4>Mergozzo</h4>
+        <p>Malerisches Dorf am See. Piazza mit Seeblick, Cappuccino am Wasser. Einer der saubersten Seen Europas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Gut zu wissen</div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h4>&#127968; Übernachtung</h4>
+      <p>B&B in Finalborgo (ab ~70 €/Nacht) oder Camping San Martino (Pool, Schatten, günstiger). Für die Nacht am 2./3. Juni: direkt in Mergozzo oder Umgebung.</p>
+    </div>
+    <div class="info-box">
+      <h4>&#128176; Budget (ca.)</h4>
+      <p>Übernachtung: ~200–280 € (4 Nächte zu zweit)<br>Sprit + Maut: ~120–150 €<br>Essen: ~40–60 €/Tag<br>Gesamt: ca. 550–750 €</p>
+    </div>
+    <div class="info-box">
+      <h4>&#127860; Must-Eat</h4>
+      <p>Focaccia Genovese, Focaccia di Recco (mit Käse), Farinata (Kichererbsen-Pfannkuchen), Pesto alla Genovese, Trofie al Pesto, frischer Fisch in Noli.</p>
+    </div>
+    <div class="info-box">
+      <h4>&#128663; Fahrtipps</h4>
+      <p>Schweizer Vignette digital kaufen (40 CHF). In Italien: Maut A26 ca. 15–20 €. Parken in Finale Ligure: öffentliche Parkplätze am Bahnhof. In Genua: Parkhaus am Porto Antico.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  Ligurien Roadtrip 2026 &middot; Stiefenhofen → Finale Ligure → Genua → Mergozzo
+</footer>
+
+</body>
+</html>
